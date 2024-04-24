@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+    centos-molecule:
+        container_name: centos-molecule
+        # image: centos
+        build: .
+        # restart: always
+        privileged: true
+        stdin_open: true
+        tty: true
+        ports:
+          - "22:22"
+        volumes:
+            - ./share:/root/share
+            - //var/run/docker.sock:/var/run/docker.sock
